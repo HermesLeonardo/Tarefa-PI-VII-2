@@ -1,0 +1,32 @@
+<mat-toolbar color="primary">
+  <span>Meu Projeto com Angular Material</span>
+</mat-toolbar>
+
+<div style="display: flex; flex-wrap: wrap; gap: 16px; padding: 16px;">
+  <mat-card *ngFor="let card of cards" style="max-width: 400px;">
+    <mat-card-header>
+      <mat-card-title>
+        <mat-icon>home</mat-icon> {{ card.titulo }}
+      </mat-card-title>
+      <mat-card-subtitle>{{ card.subtitulo }}</mat-card-subtitle>
+    </mat-card-header>
+
+    <img mat-card-image [src]="card.imagem" [alt]="card.titulo">
+
+    
+    <mat-card-content>
+      <p>{{ card.descricao }}</p>
+    </mat-card-content>
+
+    <mat-divider></mat-divider>
+
+    <mat-card-actions>
+      <button mat-button (click)="curtir(card.titulo)">
+        <mat-icon>thumb_up</mat-icon> Curtir
+      </button>
+      <button mat-button (click)="compartilhar(card.titulo)">
+        <mat-icon>share</mat-icon> Compartilhar
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>
